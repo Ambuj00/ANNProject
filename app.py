@@ -20,7 +20,7 @@ with open('scaler.pkl', 'rb') as file:
 
 
 ## Building the streamlit app 
-st.title('Customer Churn PRediction')
+st.title('Customer Churn Forecasting:')
 
 # Taking user inputs
 geographical_loc = st.selectbox('Geography', onehot_encoder_geo.categories_[0])
@@ -61,7 +61,7 @@ input_data_scaled = scaler.transform(input_data)
 prediction = model.predict(input_data_scaled)
 prediction_proba = prediction[0][0]
 
-st.write(f'Churn Probability: {prediction_proba:.2f}')
+st.write(f'The Probability to Churn is: {prediction_proba:.2f}')
 
 if prediction_proba > 0.5:
     st.write('The customer is likely to churn.')
